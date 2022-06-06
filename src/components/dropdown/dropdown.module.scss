@@ -1,0 +1,17 @@
+.block {
+  display: flex;
+  justify-content: space-between;
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 148%;
+  align-items: center;
+  color: #5e7793;
+  opacity: 0.87;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}

@@ -7,6 +7,10 @@ const initialState: ICallsState = {
   error: "",
 };
 
+const callsSorter = (call1: {[key: string]: string}, call2: {[key: string]: string}) => {
+  return new Date(call1.date).getTime() > new Date(call2.date).getTime() ? 0 : 1;
+};
+
 export const callsSlice = createSlice({
   name: "calls",
   initialState,
@@ -15,7 +19,7 @@ export const callsSlice = createSlice({
       state.isLoadind = true;
     },
     callsFetchingSuccess(state, action: PayloadAction<ICallsState["calls"]>) {
-      state.calls = action.payload;
+      state.calls = {...action.payload, results: action.payload.results.sort(callsSorter) };
       state.isLoadind = false;
       state.error = "";
     },
